@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading libary</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="main_container">
+        <div class="container1">
+            <div class="text">
+                <h1>Project libary</h1>
+                <p>Novels&Books libary tracker</p>
+            </div>
+
+            <div  class="adding">
+                <button onclick="appearForm()">Add a new book</button>
+            </div>
+        </div>
+    
+        <div class="container2">
+            <div class="text1">
+                <h2>Books count: </h2>
+            </div>
+
+            <div class="books">
+
+            </div>
+        </div>
+
+        <form id="mainForm">
+            <div class="title">
+                <label for="title">Title: </label>
+                <input type="text" name="title" id="title" pattern = "^[a-zA-Z]+( [a-zA-Z]+){0,19}$" required><br>
+            </div>
+
+            <div class="author">
+                <label for="author">Author: </label>
+                <input type="text" name="author" id="author" pattern = "^[a-zA-Z]+( [a-zA-Z]+){0,19}$" required><br>
+            </div>
+
+            <div class="pages">
+                <label for="page">Pages: </label>
+                <input type="number" name="page" id="page" min="0" max="1000"  required><br>
+            </div>
+
+            <div class="read">
+                <label for="read">Read:</label>
+                <input type="radio" name="read" value="Yes" required>Yes
+                <input type="radio"  name="read" value="No" required>No
+                <br>
+            </div>
+
+            <div class="rating">
+                <label for="rating">Rating:</label>
+                <input type="number" name="rating" id="rating" min="0" max="10" required>
+            </div>
+
+            <div class="submit">
+                <button onclick = "functionToExecute(event)" id = "submit" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const testLibary = ["title", "author", "page","read","rating"];
+        const myLibary = [];
+
+                /*
+        for (let i = 0; i<testLibary.length; i++) {
+            book1[testLibary[i]] = prompt("Enter the value");
+        }
+        */
+
+
+        function Book(title, author,page,read,rating) {
+            this.title = title;
+            this.author = author;
+            this.page = page;
+            this.read = read;
+            this.rating = rating;
+        }
+
+        const book = document.querySelector(".books");
+
+
+        /*
+        const title = document.createElement("h3");
+        const author = document.createElement("h3");
+        const page = document.createElement("h3");
+        const read = document.createElement("h3");
+        const rating = document.createElement("h3");
+        const text1 = document.createElement("div");
+        const text2 = document.createElement("div");
+        const text3 = document.createElement("div");
+        const text4 = document.createElement("div");
+        const text5 = document.createElement("div");
+
+        text1.style.display = "flex";
+        text2.style.display = "flex";
+        text3.style.display = "flex";
+        text4.style.display = "flex";
+        text5.style.display = "flex";
+
+        text1.style.gap = "5px";
+        text2.style.gap = "5px";
+        text3.style.gap = "5px";
+        text4.style.gap = "5px";
+        text5.style.gap = "5px";
+
+
+        
+        let input = [
+            
+        ];
+
+
+        text1.appendChild(title);
+        text2.appendChild(author);
+        text3.appendChild(page);
+        text4.appendChild(read);
+        text5.appendChild(rating);
+
+        input[0] = document.createElement("h3");
+        input[1] = document.createElement("h3");
+        input[2] = document.createElement("h3");
+        input[3] = document.createElement("h3");
+        input[4] = document.createElement("h3");
+        text1.appendChild(input[0]);
+        text2.appendChild(input[1]);
+        text3.appendChild(input[2]);
+        text4.appendChild(input[3]);
+        text5.appendChild(input[4]);
+
+        title.innerHTML = "Title: ";
+        author.innerHTML = "Author: ";
+        page.innerHTML = "Pages: ";
+        read.innerHTML = "Read: ";
+        rating.innerHTML = "Rating: "
+        book.appendChild(containerForBook);
+        containerForBook.appendChild(text1);
+        containerForBook.appendChild(text2);
+        containerForBook.appendChild(text3);
+        containerForBook.appendChild(text4);
+        containerForBook.appendChild(text5);
+        */
+
+        console.log(myLibary);
+        console.log(myLibary.length)
+        console.log(testLibary);
+
+        function appearForm() {
+            let form = document.getElementById("mainForm")
+            form.style.display = "inline-block";
+            form.style.position = "fixed";
+            form.style.margin = "500px";
+            form.style.display = "flex";
+            form.style.flexDirection = "column"
+            let button = document.getElementById("submit");
+            button.addEventListener("click", ()=> {
+                for (let i = 0; i<testLibary.length; i++) {
+                    book1[testLibary[i]] = formLibary[i].value;
+                }
+            });
+        }
+
+        function functionToExecute(event) {
+            event.preventDefault();
+            const containerForBook = document.createElement("div");
+            containerForBook.style.backgroundColor = "#1E1E2F";
+            containerForBook.style.width = "275px";
+            containerForBook.style.height = "300px";
+            containerForBook.style.border = "5px solid white";
+            containerForBook.style.display = "flex";
+            containerForBook.style.flexDirection = "column";
+            containerForBook.style.justifyContent = "space-between";
+            containerForBook.style.padding = "5px";
+
+            let createBookDiv = document.createElement("div");
+            const input1 = document.getElementById("title");
+            const input2 = document.getElementById("author");
+            const input3 = document.getElementById("page");
+            let input4 = document.querySelectorAll("[name='read']");
+            let input4Value; 
+            for (let i = 0; i<input4.length; i++) {
+                if (input4[i].checked) {
+                    input4Value = input4[i].value;
+                    break;
+                }
+            }
+            const input5 = document.getElementById("rating");
+            
+            const formLibary = [input1, input2, input3, input4, input5];
+
+            const title = document.createElement("h3");
+            const author = document.createElement("h3");
+            const page = document.createElement("h3");
+            const read = document.createElement("h3");
+            const rating = document.createElement("h3");
+            const text1 = document.createElement("div");
+            const text2 = document.createElement("div");
+            const text3 = document.createElement("div");
+            const text4 = document.createElement("div");
+            const text5 = document.createElement("div");
+
+            text1.style.display = "flex";
+            text2.style.display = "flex";
+            text3.style.display = "flex";
+            text4.style.display = "flex";
+            text5.style.display = "flex";
+
+            text1.style.gap = "5px";
+            text2.style.gap = "5px";
+            text3.style.gap = "5px";
+            text4.style.gap = "5px";
+            text5.style.gap = "5px";
+
+
+            
+            let input = [
+                
+            ];
+            
+            const deleteButton = document.createElement("button");
+            deleteButton.style.width = "80px";
+            deleteButton.style.height = "35px";
+            deleteButton.style.backgroundColor = "red";
+            deleteButton.style.color = "green";
+            deleteButton.textContent = "Delete";
+            deleteButton.style.color = "white";
+            deleteButton.style.borderRadius = "10px";
+
+            deleteButton.addEventListener("click", ()=> {
+                containerForBook.remove();
+            })
+
+            text1.appendChild(title);
+            text2.appendChild(author);
+            text3.appendChild(page);
+            text4.appendChild(read);
+            text5.appendChild(rating);
+
+            input[0] = document.createElement("h3");
+            input[1] = document.createElement("h3");
+            input[2] = document.createElement("h3");
+            input[3] = document.createElement("h3");
+            input[4] = document.createElement("h3");
+
+            input[0].innerText = input1.value;
+            input[1].innerText = input2.value;
+            input[2].innerText = input3.value;
+            input[3].innerText = input4Value;
+            input[4].innerText = input5.value;
+            text1.appendChild(input[0]);
+            text2.appendChild(input[1]);
+            text3.appendChild(input[2]);
+            text4.appendChild(input[3]);
+            text5.appendChild(input[4]);
+
+
+            title.innerHTML = "Title: ";
+            author.innerHTML = "Author: ";
+            page.innerHTML = "Pages: ";
+            read.innerHTML = "Read: ";
+            rating.innerHTML = "Rating: "   
+            book.appendChild(containerForBook);
+
+            containerForBook.appendChild(text1);
+            containerForBook.appendChild(text2);
+            containerForBook.appendChild(text3);
+            containerForBook.appendChild(text4);
+            containerForBook.appendChild(text5);
+            containerForBook.appendChild(deleteButton);
+
+            console.log(input1.value)
+
+            book.appendChild(createBookDiv);
+            let form = document.getElementById("mainForm") 
+            form.reset();
+            form.style.display = "none";
+        }
+
+        
+        myLibary.push(book1);
+
+
+        function addBookToLibrary(myLibary) {
+            // take params, my a book then store it in the array
+            for (let i = 0; i<myLibary.length; i++) {
+                for (let j = 0; j<testLibary.length; j++) {
+                    input[j].innerHTML = myLibary[i][testLibary[j]];
+                }
+            }
+        }
+
+
+        addBookToLibrary(myLibary);
+
+
+    </script>
+</body>
+</html>
