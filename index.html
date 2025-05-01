@@ -33,17 +33,17 @@
         <form id="mainForm">
             <div class="title">
                 <label for="title">Title: </label>
-                <input type="text" name="title" id="title" pattern = "^[a-zA-Z]+( [a-zA-Z]+){0,19}$" required><br>
+                <input type="text" name="title" id="title" pattern="^[a-zA-Z]+( [a-zA-Z]+){0,19}$" required><br>
             </div>
 
             <div class="author">
                 <label for="author">Author: </label>
-                <input type="text" name="author" id="author" pattern = "^[a-zA-Z]+( [a-zA-Z]+){0,19}$" required><br>
+                <input type="text" name="author" id="author" pattern="^[a-zA-Z]+( [a-zA-Z]+){0,19}$" required><br>
             </div>
 
             <div class="pages">
                 <label for="page">Pages: </label>
-                <input type="number" name="page" id="page" min="0" max="1000"  required><br>
+                <input type="tel" name="page" id="page" min="0" max="1000"required><br>
             </div>
 
             <div class="read">
@@ -55,7 +55,7 @@
 
             <div class="rating">
                 <label for="rating">Rating:</label>
-                <input type="number" name="rating" id="rating" min="0" max="10" required>
+                <input type="tel" name="rating" id="rating" min="0" max="10">
             </div>
 
             <div class="submit">
@@ -267,6 +267,7 @@
             rating.innerHTML = "Rating: "   
             book.appendChild(containerForBook);
 
+            containerForBook.id = self.crypto.randomUUID();
             containerForBook.appendChild(text1);
             containerForBook.appendChild(text2);
             containerForBook.appendChild(text3);
